@@ -1,0 +1,312 @@
+/* 全局样式 */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: Arial, sans-serif;
+  overflow: hidden;
+  color: white;
+}
+
+/* 太阳系背景 */
+.solar-system-container {
+  width: 100vw;
+  height: 100vh;
+  background-color: #000;
+  position: relative;
+  overflow: hidden;
+}
+
+.solar-system {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 0;
+  background: radial-gradient(ellipse at center, rgba(33, 33, 33, 1) 0%, rgba(0, 0, 0, 1) 100%);
+}
+
+/* 行星 */
+.planet {
+  position: absolute;
+  border-radius: 50%;
+  transform-origin: center center;
+}
+
+.sun {
+  width: 80px;
+  height: 80px;
+  background: radial-gradient(circle at center, #ff9a00, #ff6600);
+  box-shadow: 0 0 50px #ff9a00;
+  top: 50%;
+  left: 50%;
+  margin-top: -40px;
+  margin-left: -40px;
+  z-index: 10;
+}
+
+.mercury-orbit, .venus-orbit, .earth-orbit, .mars-orbit {
+  position: absolute;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 50%;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.mercury-orbit {
+  width: 160px;
+  height: 160px;
+}
+
+.venus-orbit {
+  width: 240px;
+  height: 240px;
+}
+
+.earth-orbit {
+  width: 320px;
+  height: 320px;
+}
+
+.mars-orbit {
+  width: 400px;
+  height: 400px;
+}
+
+.mercury {
+  width: 10px;
+  height: 10px;
+  background-color: #b6b6b6;
+  top: 50%;
+  left: 50%;
+  margin-top: -5px;
+  margin-left: -85px;
+  animation: orbit 8s linear infinite;
+}
+
+.venus {
+  width: 15px;
+  height: 15px;
+  background-color: #e7cdcd;
+  top: 50%;
+  left: 50%;
+  margin-top: -7.5px;
+  margin-left: -127.5px;
+  animation: orbit 12s linear infinite;
+}
+
+.earth {
+  width: 18px;
+  height: 18px;
+  background-color: #6b93d6;
+  top: 50%;
+  left: 50%;
+  margin-top: -9px;
+  margin-left: -169px;
+  animation: orbit 20s linear infinite;
+}
+
+.mars {
+  width: 14px;
+  height: 14px;
+  background-color: #c1440e;
+  top: 50%;
+  left: 50%;
+  margin-top: -7px;
+  margin-left: -207px;
+  animation: orbit 30s linear infinite;
+  z-index: 20;
+}
+
+@keyframes orbit {
+  0% {
+    transform: rotate(0deg) translateX(80px) rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg) translateX(80px) rotate(-360deg);
+  }
+}
+
+/* 星星背景 */
+.stars {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 0;
+}
+
+.star {
+  position: absolute;
+  background-color: white;
+  border-radius: 50%;
+}
+
+/* 火星表面 */
+.mars-container {
+  width: 100vw;
+  height: 100vh;
+  background-color: #8B4513;
+  position: relative;
+  overflow: auto;
+  background-image: url('./mars-surface.jpg');
+  background-size: cover;
+  background-position: center;
+}
+
+/* 表单样式 */
+.auth-container {
+  background-color: rgba(0, 0, 0, 0.7);
+  padding: 2rem;
+  border-radius: 10px;
+  text-align: center;
+  max-width: 400px;
+  margin: 0 auto;
+}
+
+.form-group {
+  margin-bottom: 1rem;
+  text-align: left;
+}
+
+.form-group label {
+  display: block;
+  margin-bottom: 0.5rem;
+}
+
+.form-group input {
+  width: 100%;
+  padding: 0.8rem;
+  border: none;
+  border-radius: 5px;
+  background-color: rgba(255, 255, 255, 0.9);
+}
+
+.btn {
+  display: inline-block;
+  padding: 0.8rem 1.5rem;
+  border-radius: 5px;
+  text-decoration: none;
+  font-weight: bold;
+  transition: all 0.3s ease;
+  cursor: pointer;
+  border: none;
+}
+
+.btn:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+}
+
+.login-btn {
+  background-color: #4CAF50;
+  color: white;
+}
+
+.register-btn {
+  background-color: #2196F3;
+  color: white;
+}
+
+/* 火星探索界面 */
+.explorer-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 2rem;
+  background-color: rgba(0, 0, 0, 0.7);
+}
+
+.explorer-content {
+  display: flex;
+  height: calc(100vh - 60px);
+}
+
+.sidebar {
+  width: 300px;
+  background-color: rgba(0, 0, 0, 0.7);
+  padding: 1rem;
+  overflow-y: auto;
+}
+
+.main-content {
+  flex: 1;
+  padding: 1rem;
+  overflow-y: auto;
+}
+
+/* 响应式设计 */
+@media (max-width: 768px) {
+  .explorer-content {
+    flex-direction: column;
+  }
+  
+  .sidebar {
+    width: 100%;
+    max-height: 300px;
+  }
+}
+
+/* 加载动画 */
+.loading {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+}
+
+.spinner {
+  border: 4px solid rgba(255, 255, 255, 0.3);
+  border-radius: 50%;
+  border-top: 4px solid #ffffff;
+  width: 40px;
+  height: 40px;
+  animation: spin 1s linear infinite;
+  margin-bottom: 1rem;
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+/* 火星放大动画 */
+.mars-zoom {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: black;
+  z-index: 100;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 1s ease;
+}
+
+.mars-zoom.active {
+  opacity: 1;
+  pointer-events: all;
+}
+
+.mars-zoom-planet {
+  width: 50px;
+  height: 50px;
+  background-color: #c1440e;
+  border-radius: 50%;
+  transition: transform 3s ease;
+}
+
+.mars-zoom.active .mars-zoom-planet {
+  transform: scale(50);
+}

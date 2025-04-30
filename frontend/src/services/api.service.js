@@ -3,7 +3,7 @@ import axios from 'axios';
 const   apiUrl = 'http://localhost:8080/api';
 
 //创建axios实例
-const api = axios.create({
+const apiClient = axios.create({
     baseURL: apiUrl,
     headers: {
         'Content-Type': 'application/json'
@@ -11,7 +11,7 @@ const api = axios.create({
 });
 
 //请求拦截器 在请求提交前做一些处理
-api.interceptors.request.use(config => {
+apiClient.interceptors.request.use(config => {
     // 在请求头中添加token
     const token = localStorage.getItem('token');
     if (token) {

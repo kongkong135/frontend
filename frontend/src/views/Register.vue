@@ -51,7 +51,7 @@
           </button>
         </form>
         <div class="form-footer">
-          <p>已有账号？ <router-link to="/">立即登录</router-link></p>
+          <p>已有账号？ <router-link to="/login">立即登录</router-link></p>
         </div>
       </div>
     </div>
@@ -101,7 +101,7 @@
           
           // 延迟后跳转到登录页
           setTimeout(() => {
-            this.$router.push('/');
+            this.$router.push('/login');
           }, 2000);
         } catch (err) {
           this.error = true;
